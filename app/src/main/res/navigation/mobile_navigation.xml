@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/nav_scan"
-        android:name="com.example.signapp.ui.home.HomeFragment"
+        android:name="com.example.signapp.ui.scan.ScanFragment"
         android:label="@string/menu_scan"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_scan" />
 
     <fragment
         android:id="@+id/nav_sign"
-        android:name="com.example.signapp.ui.gallery.GalleryFragment"
+        android:name="com.example.signapp.ui.sign.SignFragment"
         android:label="@string/menu_sign"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_sign" />
 
     <fragment
         android:id="@+id/nav_manage"
-        android:name="com.example.signapp.ui.slideshow.SlideshowFragment"
+        android:name="com.example.signapp.ui.manage.ManageFragment"
         android:label="@string/menu_manage"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_manage" />
     <fragment
         android:id="@+id/nav_information"
         android:name="com.example.signapp.ui.information.InformationFragment"
         android:label="@string/menu_information"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_manage" />
 
 </navigation>

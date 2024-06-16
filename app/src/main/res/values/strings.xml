@@ -16,4 +16,7 @@
     <string name="menu_information">我的信息</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="StarScan">开始扫码</string>
+    <string name="Start_sign">开始签到</string>
+    <string name="End_sign">结束签到</string>
 </resources>

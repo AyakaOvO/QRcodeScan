@@ -5,7 +5,7 @@
     android:id="@+id/nav_scan"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.scan.ScanFragment">
 
     <TextView
         android:id="@+id/text_home"
@@ -17,8 +17,16 @@
         android:textAlignment="center"
         android:textSize="20sp"
         android:text="scan"
+        app:layout_constraintBottom_toTopOf="@id/ScanButton"
+        />
+    <Button
+        android:id="@+id/ScanButton"
+        android:layout_width="100sp"
+        android:layout_height="50sp"
+        android:text="@string/StarScan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
