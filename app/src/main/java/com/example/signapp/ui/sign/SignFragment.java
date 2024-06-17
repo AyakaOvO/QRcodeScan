@@ -40,11 +40,21 @@ public class SignFragment extends Fragment {
 
         private int SignTime;
 
+        private EditText classNameInput;
+
+        private String className;
+
+
+
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_sign, container, false);
+        //新建的ui线程
         handler = new Handler();
 
+        classNameInput =view.findViewById(R.id.className_input);
         editText = view.findViewById(R.id.SignTime_input);
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -64,53 +74,67 @@ public class SignFragment extends Fragment {
         return view;
     }
 
+
     class BtnOnClickListener implements View.OnClickListener {
 
         private volatile boolean thread_stop = true;
-        private Date starDate;
+        private Date starDate ;
 
+
+        //计算时间签到开始时间和现在时间的时间差，如果大于规定的时间就结束线程
         public void distanceTime(Date starDate){
             Date date = new Date();
             if((date.getTime() - starDate.getTime())> (long) SignTime *60*1000){
                 thread_stop = false;
+                Log.d("threadTime","threadStop");
             }
 
         }
 
+
+        //结束线程的方法
         public void stopThread() {
             thread_stop = false;
+            Log.d("Thread","ThreadStop");
         }
 
 
+
+        //当点击开始生成二维码时
         @Override
         public void onClick(View v) {
 
+            thread_stop = true;
             starDate = new Date();
+            className = classNameInput.getText().toString();
 
+
+            //5秒刷新一次
             final long timeInterval = 5000;
+
             imageView.setVisibility(View.VISIBLE);
             StarQRCodeButton.setVisibility(View.GONE);
             EndQRCodeButton.setVisibility(View.VISIBLE);
 
 
-
+            //新建线程用于生成二维码并更新UI
             Thread t  = new Thread() {
 
-
+    //+gF7ztMFt0pt云服务器数据库密码
                 @Override
                 public void run() {
 
-                    while (thread_stop  ){
+                    while (thread_stop ){
 
-                        Calendar calendar = Calendar.getInstance(Locale.CHINA);
 
-                        Date date = calendar.getTime();
-                        distanceTime(date);
-                        String url  =date.toString();
+                        Date date = new Date();
+                        long dateLong = date.getTime();
+                        distanceTime(starDate);
 
-                        String dateString = date.toString();
-                        Log.d("date",url);
-                        bitmap = ScanCodeConfig.createQRCode(url);
+
+                        String dateString = dateLong+","+className ;
+                        Log.d("date",dateString );
+                        bitmap = ScanCodeConfig.createQRCode(dateString);
                         handler.post(runnable);
                         Log.d("QRCode","QRCode");
 
@@ -119,24 +143,24 @@ public class SignFragment extends Fragment {
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
+
                     }
 
+                    if(!thread_stop){
+                        handler.post(UIrun);
+                    }
 
-            }
+                }
 
-                };
-                t.start();
-                ;
+            };
+            t.start();
 
-
+            //结束签到按钮
             EndQRCodeButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     stopThread();
-                    Log.d("Thread","Thread Stop");
-                    StarQRCodeButton.setVisibility(View.VISIBLE);
-                    EndQRCodeButton.setVisibility(View.GONE);
-                    imageView.setVisibility(View.GONE);
+
                 }
             });
     }
@@ -149,6 +173,15 @@ public class SignFragment extends Fragment {
         @Override
         public void run() {
             imageView.setImageBitmap(bitmap);
+        }
+    };
+
+    Runnable UIrun = new Runnable() {
+        @Override
+        public void run() {
+            StarQRCodeButton.setVisibility(View.VISIBLE);
+            EndQRCodeButton.setVisibility(View.GONE);
+            imageView.setVisibility(View.GONE);
         }
     };
 

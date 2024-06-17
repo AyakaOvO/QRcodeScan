@@ -1,4 +1,4 @@
-package com.example.signapp.scan;
+package com.example.signapp.ui.scan;
 
 public class ScanInternet {
 

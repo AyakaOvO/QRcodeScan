@@ -19,4 +19,6 @@
     <string name="StarScan">开始扫码</string>
     <string name="Start_sign">开始签到</string>
     <string name="End_sign">结束签到</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="loginLogo">登录</string>
 </resources>

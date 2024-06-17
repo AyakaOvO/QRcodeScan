@@ -8,23 +8,39 @@
     tools:context=".ui.sign.SignFragment">
 
 
-
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="签到课程为："
+        android:textSize="15dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/className_input"
+        app:layout_constraintEnd_toStartOf="@id/className_input" />
+
+
+    <EditText
+        android:id="@+id/className_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:hint="课程"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/SignTime_input"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.617"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        tools:layout_editor_absoluteY="77dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="签到时间为"
+        android:textSize="15dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/SignTime_input"
+        app:layout_constraintEnd_toStartOf="@id/SignTime_input" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="签到时间为"
-            android:textSize="15dp"
-            app:layout_constraintBaseline_toBaselineOf="@id/SignTime_input"
-            app:layout_constraintEnd_toStartOf="@id/SignTime_input" />
-
-        <EditText
+    <EditText
             android:id="@+id/SignTime_input"
             android:layout_width="50dp"
             android:layout_height="wrap_content"

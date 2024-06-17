@@ -8,17 +8,52 @@
     tools:context=".ui.manage.ManageFragment">
 
     <TextView
-        android:id="@+id/text_slideshow"
+        android:id="@+id/manage_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:text="查询签到信息"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:text="manager"
+        android:textColor="@color/black"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063" />
+
+    <LinearLayout
+        android:id="@+id/userId_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/manage_logo"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:id="@+id/userId_label"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="班级: "
+            android:layout_marginStart="50dp"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/userIdInput"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="请输入学号"
+            android:ems="10"
+            android:inputType="number"
+            android:background="#DCDCDC"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

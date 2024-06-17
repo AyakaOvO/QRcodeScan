@@ -1,4 +1,5 @@
-package com.example.signapp.scan;
+package com.example.signapp.ui.scan;
+
 
 
 import android.Manifest;
@@ -9,6 +10,10 @@ import android.os.Build;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+
+
+
+//用于授权相机权限
 public class Permission {
     public static final int REQUEST_CODE = 5;
     //定义三个权限
