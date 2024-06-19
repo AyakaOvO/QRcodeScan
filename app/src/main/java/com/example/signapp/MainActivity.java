@@ -1,5 +1,6 @@
 package com.example.signapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -38,7 +39,7 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private static ProgressDialog progressDialog;
     private Handler handler = null;
 
     private TextView homeText;
@@ -63,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         handler = new Handler();
         setSupportActionBar(binding.appBarMain.toolbar);
         DrawerLayout drawer = binding.drawerLayout;
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("加载中");
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         NavigationView navigationView = binding.navView;
         loginView = navigationView.getHeaderView(0);
@@ -135,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("scan123","activity开始扫描");
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && data != null) {
+            progressDialog.show();
             Log.d("scan123", String.valueOf(requestCode));
             Log.d("scan123", String.valueOf(ScanCodeConfig.QUESTCODE));
 
@@ -193,6 +197,7 @@ public class MainActivity extends AppCompatActivity {
                                     String responseData = response.body().string();
                                     Log.d("response",responseData);
                                     if( responseData.equals("签到成功")){
+                                        progressDialog.dismiss();
                                         handler.post(new Runnable() {
                                             @Override
                                             public void run() {
@@ -203,7 +208,9 @@ public class MainActivity extends AppCompatActivity {
                                             }
                                         });
                                     }else {
+                                        progressDialog.dismiss();
                                         handler.post(new Runnable() {
+
                                             @Override
                                             public void run() {
                                                 Toast.makeText(getApplicationContext(),"签到失败！请重试",Toast.LENGTH_SHORT).show();
@@ -214,6 +221,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 }catch (Exception e){
                                     e.printStackTrace();
+                                    progressDialog.dismiss();
                                     handler.post(new Runnable() {
                                         @Override
                                         public void run() {
@@ -244,6 +252,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("click","click");
 
             if(name.equals("未登录") || sclass.equals("点击登录")){
+                Toast.makeText(getApplicationContext(),"请先登录！",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }

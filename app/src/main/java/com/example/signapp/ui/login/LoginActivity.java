@@ -1,5 +1,6 @@
 package com.example.signapp.ui.login;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -36,7 +37,7 @@ import okhttp3.Response;
 
 
 public class LoginActivity extends AppCompatActivity {
-
+    private static ProgressDialog progressDialog;
     private EditText userIdInput;
     private EditText passwdInput;
     private Button loginButton;
@@ -56,6 +57,8 @@ public class LoginActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("登录界面");
         handler = new Handler();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("加载中");
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
         userIdInput = findViewById(R.id.userIdInput);
@@ -86,6 +89,9 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressDialog.show();
+
+
 
                 userId = userIdInput.getText().toString();
                 passwd = passwdInput.getText().toString();
@@ -126,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.commit();
 
                                 Log.d("userMessage", id + name + password + sclass + ralid);
-
+                                progressDialog.dismiss();
                                 handler.post(new Runnable() {
                                     @Override
                                     public void run() {
@@ -139,6 +145,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             }else {
                                 Log.d("userMessage","登录失败");
+                                progressDialog.dismiss();
                                 handler.post(new Runnable() {
                                     @Override
                                     public void run() {
@@ -151,7 +158,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         }catch (Exception e){
                             e.printStackTrace();
-
+                            progressDialog.dismiss();
                             handler.post(new Runnable() {
                                 @Override
                                 public void run() {

@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.signapp.R;
+import com.example.signapp.ui.login.LoginActivity;
 import com.yxing.ScanCodeActivity;
 import com.yxing.ScanCodeConfig;
 import com.yxing.def.ScanStyle;
@@ -71,9 +72,10 @@ public class ScanFragment extends Fragment {
         ScanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                name = sharedPreferences.getString("name","未登录");
+                sclass = sharedPreferences.getString("sclass","点击登录");
 
-
-                Log.d("scan123","starscan");
+                if(!name.equals("未登录") && !sclass.equals("点击登录")){
 
                     ScanCodeConfig.create(appCompatActivity,ScanFragment )
                             .setStyle(ScanStyle.WECHAT )
@@ -82,7 +84,17 @@ public class ScanFragment extends Fragment {
                             .setShowFrame(true)
                             .buidler()
                             .start(ScanCodeActivity.class);
-                            //跳转扫码页   扫码页可自定义样式
+                    //跳转扫码页   扫码页可自定义样式
+
+                }else {
+                    Toast.makeText(appCompatActivity.getApplicationContext(),"请先登录！",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(appCompatActivity, LoginActivity.class);
+                    startActivity(intent);
+                }
+
+                Log.d("scan123","starscan");
+
+
 
                 }
 
