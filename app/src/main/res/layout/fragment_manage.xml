@@ -20,35 +20,66 @@
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.063" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
         android:id="@+id/userId_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/manage_logo"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         >
 
         <TextView
-            android:id="@+id/userId_label"
+            android:id="@+id/subjectManage_label"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="班级: "
+            android:layout_height="40dp"
+            android:text="课程名: "
             android:layout_marginStart="50dp"
             android:textColor="@color/black"
             android:textSize="30sp" />
 
         <EditText
-            android:id="@+id/userIdInput"
+            android:id="@+id/subjectManageInput"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:hint="请输入学号"
+            android:hint="请输入班级名"
             android:ems="6"
-            android:inputType="number"
+            android:inputType="text"
+            android:background="#DCDCDC"
+            android:textSize="20sp" />
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/class_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/userId_login"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/classManage_label"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="50dp"
+            android:text="班级名: "
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/classManageInput"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="请输入课程名"
+            android:ems="6"
+            android:inputType="text"
             android:background="#DCDCDC"
             android:textSize="20sp" />
 
@@ -58,13 +89,45 @@
     </LinearLayout>
 
 
+    <LinearLayout
+        android:id="@+id/time_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/class_logo"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/timeManage_label"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="50dp"
+            android:text="签到日期: "
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/timeManageInput"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="xxxx-xx-xx"
+            android:ems="6"
+            android:inputType="text"
+            android:background="#DCDCDC"
+            android:textSize="20sp" />
+
+
+
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/manage_button"
         android:layout_width="80dp"
         android:layout_height="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/userId_login"
+        app:layout_constraintTop_toBottomOf="@id/time_logo"
         android:layout_marginTop="10dp"
         android:text="查询"
         tools:layout_editor_absoluteY="200dp" />
@@ -75,10 +138,11 @@
         app:layout_constraintTop_toBottomOf="@id/manage_button"
         app:layout_constraintStart_toStartOf="parent"
         >
+
         <ListView
             android:id="@+id/manage_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

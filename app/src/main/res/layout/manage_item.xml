@@ -2,24 +2,23 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="125dp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/item_name_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
+android:layout_marginStart="20dp"
+            android:layout_marginTop="28dp"
             android:text="姓名："
             android:textColor="#3366ff"
-            android:textSize="23sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,20 +28,21 @@
             android:layout_height="wrap_content"
             android:text="贺楠轩"
             android:textColor="@color/black"
-            android:textSize="23sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@id/item_name_view"
-            app:layout_constraintTop_toTopOf="@id/item_name_view"/>
+            app:layout_constraintTop_toTopOf="@id/item_name_view" />
 
         <TextView
             android:id="@+id/item_id_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:layout_marginStart="20dp"
             android:text="学号："
-            android:textSize="23sp"
             android:textColor="#cd2626"
-            app:layout_constraintStart_toStartOf="@id/item_name_view"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="5dp"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/item_id"
@@ -50,24 +50,26 @@
             android:layout_height="wrap_content"
             android:text="2021006019"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@id/item_id_view"
-            app:layout_constraintBaseline_toBaselineOf="@id/item_id_view"/>
+            android:textSize="17sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/item_id_view"
+            app:layout_constraintStart_toEndOf="@id/item_id_view" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_width="220dp"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/item_sign_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="28dp"
             android:text="签到状态："
             android:textColor="#3366ff"
-            android:textSize="23sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,20 +79,21 @@
             android:layout_height="wrap_content"
             android:text="已签到"
             android:textColor="@color/black"
-            android:textSize="23sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@id/item_sign_view"
-            app:layout_constraintTop_toTopOf="@id/item_sign_view"/>
+            app:layout_constraintTop_toTopOf="@id/item_sign_view" />
 
         <TextView
             android:id="@+id/item_time_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            android:layout_marginBottom="40dp"
             android:text="签到时间："
-            android:textSize="23sp"
             android:textColor="#cd2626"
-            app:layout_constraintStart_toStartOf="@id/item_sign_view"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="5dp"/>
+            app:layout_constraintStart_toStartOf="@id/item_sign_view" />
 
         <TextView
             android:id="@+id/item_time"
@@ -99,8 +102,8 @@
             android:text="2024-06-18"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@id/item_time_view"
-            app:layout_constraintBaseline_toBaselineOf="@id/item_time_view"/>
+            app:layout_constraintBaseline_toBaselineOf="@id/item_time_view"
+            app:layout_constraintStart_toEndOf="@id/item_time_view" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

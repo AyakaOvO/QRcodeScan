@@ -14,6 +14,24 @@ public class User {
     private String valid;
 
     private String subject;
+    private String state;
+    private String signintime;
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getSignintime() {
+        return signintime;
+    }
+
+    public void setSignintime(String signintime) {
+        this.signintime = signintime;
+    }
 
     public String getId() {
         return id;
@@ -72,6 +90,8 @@ public class User {
                 ", sclass='" + sclass + '\'' +
                 ", valid='" + valid + '\'' +
                 ", subject='" + subject + '\'' +
+                ", state='" + state + '\'' +
+                ", signintime='" + signintime + '\'' +
                 '}';
     }
 }
