@@ -106,16 +106,28 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d("userMessage",userId+" "+passwd);
                             OkHttpClient client = new OkHttpClient();
                             Request request = new Request.Builder()
-                                    .url("http://192.168.105.94:8080/toLogin")
+                                    .url("http://192.168.164.94:8080/toLogin")
                                     .post(params.build())
                                     .build();
                             Response response = client.newCall(request).execute();
-                            if ( response.body() != null) {
+                            String responseBody = response.body().string();
+                            Log.d("userMessage", String.valueOf(responseBody.equals("")));
+                            if (responseBody.equals("")) {
+
+                                Log.d("userMessage","登录失败");
+                                progressDialog.dismiss();
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(getApplicationContext(),"登录失败，请检查账号和密码是否正确！",Toast.LENGTH_SHORT).show();
+                                        Log.d("userMessage","登录失败");
+                                    }
+                                });
 
 
-                                String responseDate = response.body().string();
-                                Log.d("userMessage",responseDate);
-                                JSONObject jsonObject = new JSONObject(responseDate);
+                            }else {
+                                Log.d("userMessage", responseBody);
+                                JSONObject jsonObject = new JSONObject(responseBody);
 
                                 String id = jsonObject.getString("id");
                                 Log.d("userMessage"," "+id);
@@ -142,17 +154,6 @@ public class LoginActivity extends AppCompatActivity {
                                 });
 
                                 finish();
-
-                            }else {
-                                Log.d("userMessage","登录失败");
-                                progressDialog.dismiss();
-                                handler.post(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        Toast.makeText(getApplicationContext(),"登录失败，请检查账号和密码是否正确！",Toast.LENGTH_SHORT).show();
-                                        Log.d("userMessage","登录失败");
-                                    }
-                                });
                             }
 
 

@@ -1,5 +1,6 @@
 package com.example.signapp.ui.sign;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -43,6 +44,7 @@ public class SignFragment extends Fragment {
         private Button StarQRCodeButton;
         private Button EndQRCodeButton;
         private EditText editText;
+        private static ProgressDialog progressDialog;
 
         private int SignTime;
 
@@ -66,6 +68,7 @@ public class SignFragment extends Fragment {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(appCompatActivity);
         FragmentManager fragmentManager = getFragmentManager();
         ralid =sharedPreferences.getString("ralid","1");
+
 
         if(Integer.parseInt(ralid) < 2){
             fragmentManager.popBackStack();

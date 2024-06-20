@@ -44,6 +44,11 @@ public class ManageFragment extends Fragment {
     private String selectSubject;
     private EditText subjectNameInput;
 
+    private String selectClass;
+    private EditText classNameInput;
+    private String selectTime;
+    private EditText timeNameInput;
+
     private ProgressDialog progressDialog;
     private ListView listView;
     private List<User> userList = null;
@@ -70,6 +75,8 @@ public class ManageFragment extends Fragment {
 
         }
         subjectNameInput = view.findViewById(R.id.subjectManageInput);
+        timeNameInput =view.findViewById(R.id.timeManageInput);
+        classNameInput =view.findViewById(R.id.classManageInput);
         button = view.findViewById(R.id.manage_button);
         listView = view.findViewById(R.id.manage_list);
         button.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +85,11 @@ public class ManageFragment extends Fragment {
                 progressDialog.show();
 
                 selectSubject = subjectNameInput.getText().toString();
+                selectClass = classNameInput.getText().toString();
+                selectTime = timeNameInput.getText().toString();
+
+
+
                 Log.d("manageselectClass",selectSubject);
 
                 new Thread(new Runnable() {
@@ -89,12 +101,14 @@ public class ManageFragment extends Fragment {
                         try{
 
                             FormBody.Builder params = new FormBody.Builder();
+                            params.add("sclass",selectClass);
                             params.add("subject",selectSubject);
+                            params.add("signintime",selectTime);
 
-                            Log.d("manageMessage",selectSubject);
+
                             OkHttpClient client = new OkHttpClient();
                             Request request = new Request.Builder()
-                                    .url("http://192.168.223.94:8080/teacherselect")
+                                    .url("http://192.168.164.94:8080/teacherselect2")
                                     .post(params.build())
                                     .build();
                             Response response = client.newCall(request).execute();

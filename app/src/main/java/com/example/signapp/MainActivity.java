@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     OkHttpClient client = new OkHttpClient();
                                     Request request = new Request.Builder()
-                                            .url("http://192.168.105.94:8080/signin")
+                                            .url("http://192.168.164.94:8080/signin")
                                             .post(RequestBody.create(MediaType.parse("application/json"),json))
                                             .build();
 

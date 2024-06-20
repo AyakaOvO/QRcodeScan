@@ -54,7 +54,15 @@ public class ItemAdapter extends ArrayAdapter<User> {
 
                 item_name.setText(user.getName());
                 item_id.setText(user.getId());
+
+                if(user.getState().equals("未签到")){
+                    item_sign.setTextColor(0xEEFF0000);
+                }else {
+                    item_sign.setTextColor(0xEE000000);
+                }
                 item_sign.setText(user.getState());
+
+
                 item_time.setText(user.getSignintime());
 
 
