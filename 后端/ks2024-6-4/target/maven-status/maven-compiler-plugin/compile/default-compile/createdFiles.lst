@@ -1,0 +1,12 @@
+com\tyut\domain\Student.class
+com\tyut\domain\Teacher.class
+com\tyut\domain\Signinin.class
+com\tyut\config\MyConfig.class
+com\tyut\Ks202464Application.class
+com\tyut\Mapper\AdminMapper.class
+com\tyut\domain\Admin.class
+com\tyut\controller\SignInController.class
+com\tyut\Mapper\LoginMapper.class
+com\tyut\Mapper\StudentMapper.class
+com\tyut\Mapper\TeacherMapper.class
+com\tyut\domain\Comment.class
