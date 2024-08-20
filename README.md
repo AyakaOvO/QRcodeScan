@@ -7,7 +7,6 @@
 # 实现方法
 使用了YXING库生成二维码以及调用摄像头权限，使用OKHttp库发送请求处理响应。当用户扫描二维码时向后端发送请求，后端处理请求。
 ## YXING
-<img src="http://picgo.ayakaovo.top/picture/%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E5%9B%BE.png"
 ### 使用前准备
 在setting.gradle中的dependencyResolutionManagement中添加jitpack依赖。
 ```
