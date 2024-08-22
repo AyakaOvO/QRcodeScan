@@ -1,7 +1,8 @@
 # 项目描述  
 一个简易的扫码签到系统。在教师端生成二维码，二维码每五秒钟刷新一次，防止截图代签。学生在手机中扫描二维码并向后端发送请求，并在数据库中保存签到信息。
 ## 项目架构图
-![](http://picgo.ayakaovo.top/picture/%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E5%9B%BE.png)
+<img src="http://picgo.ayakaovo.top/picture/%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E5%9B%BE.png" width="600px"> 
+
 ## 扫码签到实现图
 ![](http://picgo.ayakaovo.top/picture/%E6%89%AB%E7%A0%81%E7%AD%BE%E5%88%B0%E6%9E%B6%E6%9E%84%E5%9B%BE.png)
 # 项目展示
