@@ -4,6 +4,16 @@
 ![](http://picgo.ayakaovo.top/picture/%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E5%9B%BE.png)
 ## 扫码签到实现图
 ![](http://picgo.ayakaovo.top/picture/%E6%89%AB%E7%A0%81%E7%AD%BE%E5%88%B0%E6%9E%B6%E6%9E%84%E5%9B%BE.png)
+# 项目展示
+## 登录界面
+<img src="http://picgo.ayakaovo.top/picture/%E5%9B%BE%E7%89%871.jpg" width="250px">        <img src="http://picgo.ayakaovo.top/picture/%E5%9B%BE%E7%89%872.jpg" width="250px">
+## 发布签到和扫码界面
+<img src="http://picgo.ayakaovo.top/picture/%E5%9B%BE%E7%89%873.jpg" width="250px">        <img src="http://picgo.ayakaovo.top/picture/%E5%9B%BE%E7%89%874.jpg" width="250px">
+## 信息查询界面
+<img src="http://picgo.ayakaovo.top/picture/%E5%9B%BE%E7%89%875.jpg" width="250px">        <img src="http://picgo.ayakaovo.top/picture/%E5%9B%BE%E7%89%876.jpg" width="250px">
+## 个人信息查询界面
+<img src="http://picgo.ayakaovo.top/picture/%E5%9B%BE%E7%89%877.jpg" width="250px">
+
 # 实现方法
 使用了YXING库生成二维码以及调用摄像头权限，使用OKHttp库发送请求处理响应。当用户扫描二维码时向后端发送请求，后端处理请求。
 ## YXING
